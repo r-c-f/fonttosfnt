@@ -69,8 +69,10 @@ Some of the font-level values, notably sub- and superscript positions,
 are dummy values.
 .SH SEE ALSO
 X(7), Xserver(1), Xft(3x).
-.I Fonts in XFree86.
+.I Fonts in X.
 .SH AUTHOR
+The version of
 .B Fonttosfnt
-was written by Juliusz Chroboczek <jch@xfree86.org> for the XFree86
-project.
+included in this X.Org Foundation release
+was originally written by Juliusz Chroboczek <jch@xfree86.org>
+for the XFree86 project.
