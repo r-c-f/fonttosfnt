@@ -1,3 +1,4 @@
+/* $XdotOrg: xc/programs/fonttosfnt/read.c,v 1.1.4.1.4.1 2004/03/04 17:48:48 eich Exp $ */
 /*
 Copyright (c) 2002 by Juliusz Chroboczek
 
@@ -19,9 +20,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
-/* $XdotOrg: xc/programs/fonttosfnt/read.c,v 1.1.4.1.4.2 2004/03/04 19:45:27 kaleb Exp $ */
 /* $XFree86: xc/programs/fonttosfnt/read.c,v 1.5 2003/12/19 02:05:39 dawes Exp $ */
-
 #include <stdio.h>
 
 #include <ft2build.h>
@@ -117,14 +116,17 @@ readFile(char *filename, FontPtr font)
            unique; it only needs to be unique among all installed fonts on a
            Windows system.  We don't bother getting it quite right. */
         if(face->num_fixed_sizes <= 0)
-            unique_name = sprintf_reliable("%s XFree86 bitmap", full_name);
+            unique_name = sprintf_reliable("%s "XVENDORNAMESHORT" bitmap"
+					   , full_name);
         else if(face->available_sizes[0].width == 
                 face->available_sizes[0].height)
-            unique_name = sprintf_reliable("%s XFree86 bitmap size %d",
+            unique_name = sprintf_reliable("%s "XVENDORNAMESHORT
+					   " bitmap size %d",
                                            full_name, 
                                            face->available_sizes[0].height);
         else
-            unique_name = sprintf_reliable("%s XFree86 bitmap size %dx%d",
+            unique_name = sprintf_reliable("%s "XVENDORNAMESHORT
+					   " bitmap size %dx%d",
                                            full_name, 
                                            face->available_sizes[0].width,
                                            face->available_sizes[0].height);
@@ -178,15 +180,17 @@ readFile(char *filename, FontPtr font)
         }
 
         font->names[i].nid = 10;
-        font->names[i].size = 2 * strlen("XFree86 converted bitmap font");
-        font->names[i].value = makeUTF16("XFree86 converted bitmap font");
+        font->names[i].size = 2 * strlen(XVENDORNAMESHORT
+					 " converted bitmap font");
+        font->names[i].value = makeUTF16(XVENDORNAMESHORT
+					 "X converted bitmap font");
         i++;
-
+#ifdef __VENDORWEBSUPPORT__
         font->names[i].nid = 11;
-        font->names[i].size = 2 * strlen("http://www.xfree86.org");
-        font->names[i].value = makeUTF16("http://www.xfree86.org");
+        font->names[i].size = 2 * strlen(__VENDORWEBSUPPORT__);
+        font->names[i].value = makeUTF16(__VENDORWEBSUPPORT__);
         i++;
-
+#endif
         font->numNames = i;
 
         font->flags = faceFlags(face) | (symbol ? FACE_SYMBOL : 0);
