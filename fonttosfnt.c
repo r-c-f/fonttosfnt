@@ -20,7 +20,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 /* $XdotOrg: xc/programs/fonttosfnt/fonttosfnt.c,v 1.4 2003/12/19 02:16:36 dawes Exp $ */
-/* $XFree86: xc/programs/fonttosfnt/fonttosfnt.c,v 1.4 2003/12/19 02:16:36 dawes Exp $ */
+/* $XFree86: xc/programs/fonttosfnt/fonttosfnt.c,v 1.3 2003/07/08 15:39:49 tsi Exp $ */
 
 #include <stdio.h>
 #include <stdlib.h>
