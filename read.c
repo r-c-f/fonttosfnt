@@ -19,13 +19,14 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
-/* $XFree86: xc/programs/fonttosfnt/read.c,v 1.4 2003/11/21 05:22:09 dawes Exp $ */
+/* $XFree86: xc/programs/fonttosfnt/read.c,v 1.6 2003/12/19 02:16:36 dawes Exp $ */
 
 #include <stdio.h>
 
 #include <ft2build.h>
 #include FT_FREETYPE_H
 #include FT_BDF_H
+#include "X11/Xos.h"
 #include "fonttosfnt.h"
 #include "fontenc.h"
 
@@ -38,7 +39,7 @@ static int ft_inited = 0;
 static FT_Library ft_library;
 
 static int
-FT_Ensure_Inited()
+FT_Ensure_Inited(void)
 {
     int rc;
     if(ft_inited)

@@ -19,7 +19,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
-/* $XFree86: xc/programs/fonttosfnt/util.c,v 1.8 2003/11/21 05:22:09 dawes Exp $ */
+/* $XFree86: xc/programs/fonttosfnt/util.c,v 1.11 2003/12/19 02:16:36 dawes Exp $ */
 
 #include <time.h>
 #include <string.h>
@@ -36,7 +36,14 @@ THE SOFTWARE.
 #include FT_FREETYPE_H
 #include FT_INTERNAL_OBJECTS_H
 #include FT_BDF_H
+#include "X11/Xos.h"
 #include "fonttosfnt.h"
+
+#ifdef NEED_SNPRINTF
+#undef SCOPE
+#define SCOPE static
+#include "snprintf.c"
+#endif
 
 #ifdef __GLIBC__
 #define HAVE_TIMEGM
@@ -120,13 +127,13 @@ makeName(char *s)
 
 /* Like mktime(3), but UTC rather than local time */
 #if defined(HAVE_TIMEGM)
-time_t
+static time_t
 mktime_gmt(struct tm *tm)
 {
     return timegm(tm);
 }
 #elif defined(HAVE_TM_GMTOFF)
-time_t
+static time_t
 mktime_gmt(struct tm *tm)
 {
     time_t t;
@@ -142,7 +149,7 @@ mktime_gmt(struct tm *tm)
 }
 #elif defined(HAVE_TZSET)
 /* Taken from the Linux timegm(3) man page */
-time_t
+static time_t
 mktime_gmt(struct tm *tm)
 {
     time_t t;
