@@ -19,7 +19,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
-/* $XdotOrg: xc/programs/fonttosfnt/fonttosfnt.c,v 1.1.4.1.4.2 2004/03/04 19:42:54 kaleb Exp $ */
+/* $XdotOrg: xc/programs/fonttosfnt/fonttosfnt.c,v 1.2 2004/04/23 19:54:32 eich Exp $ */
 /* $XFree86: xc/programs/fonttosfnt/fonttosfnt.c,v 1.3 2003/07/08 15:39:49 tsi Exp $ */
 
 #include <stdio.h>

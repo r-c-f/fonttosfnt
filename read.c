@@ -1,4 +1,4 @@
-/* $XdotOrg: xc/programs/fonttosfnt/read.c,v 1.1.4.1.4.1 2004/03/04 17:48:48 eich Exp $ */
+/* $XdotOrg: xc/programs/fonttosfnt/read.c,v 1.3 2004/05/24 19:06:59 eich Exp $ */
 /*
 Copyright (c) 2002 by Juliusz Chroboczek
 
@@ -20,7 +20,9 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
+/* $XdotOrg: xc/programs/fonttosfnt/read.c,v 1.3 2004/05/24 19:06:59 eich Exp $ */
 /* $XFree86: xc/programs/fonttosfnt/read.c,v 1.5 2003/12/19 02:05:39 dawes Exp $ */
+
 #include <stdio.h>
 
 #include <ft2build.h>
@@ -28,7 +30,7 @@ THE SOFTWARE.
 #include FT_BDF_H
 #include "X11/Xos.h"
 #include "fonttosfnt.h"
-#include "fontenc.h"
+#include "X11/fonts/fontenc.h"
 
 #define FLOOR2(x, y) ((x) >= 0 ? (x) / (y) : -(((-(x)) + (y) - 1) / (y)))
 #define CEIL2(x, y) (FLOOR2((x) + (y) - 1, (y)))
