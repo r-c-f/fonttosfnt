@@ -19,7 +19,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
-/* $XFree86$ */
+/* $XFree86: xc/programs/fonttosfnt/write.c,v 1.5 2003/10/24 20:38:11 tsi Exp $ */
 
 #if defined(linux) && !defined(_GNU_SOURCE)
 /* for fwrite_unlocked and fread_unlocked */
