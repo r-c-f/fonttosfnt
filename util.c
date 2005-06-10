@@ -56,7 +56,7 @@ THE SOFTWARE.
 #define GMTOFFMEMBER tm_gmtoff
 #endif
 
-#ifdef SCO
+#ifdef __SCO__
 #define HAVE_TM_GMTOFF
 #define GMTOFFMEMBER tm_tzadj
 #endif
