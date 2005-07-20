@@ -21,8 +21,8 @@
 
 bin_PROGRAMS = fonttosfnt
 
-fonttosfnt_CFLAGS = $(DEP_CFLAGS) -DXVENDORNAME=\"X.org\ Foundation\" -DXVENDORNAMESHORT=\"X.org\"
-fonttosfnt_LDADD = $(DEP_LIBS) -lm
+fonttosfnt_CFLAGS = $(FONTTOSFNT_CFLAGS) -DXVENDORNAME=\"X.org\ Foundation\" -DXVENDORNAMESHORT=\"X.org\"
+fonttosfnt_LDADD = $(FONTTOSFNT_LIBS) -lm
 
 fonttosfnt_SOURCES =	\
         fonttosfnt.c \
