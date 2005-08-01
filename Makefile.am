@@ -37,6 +37,6 @@ fonttosfnt_SOURCES += env.c
 fonttosfnt_CFLAGS += -DNEED_SETENV
 endif
 
-dist_man_MANS = \
+dist_man1_MANS = \
         fonttosfnt.man
 
