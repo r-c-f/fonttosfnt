@@ -36,7 +36,7 @@ AC_CHECK_FUNC(setenv, have_setenv=yes, have_setenv=no)
 AM_CONDITIONAL(NEED_SETENV, [test x$have_setenv = xno])
 
 # Checks for pkg-config packages
-PKG_CHECK_MODULES(FONTTOSFNT, x11 freetype2 fontenc)
+PKG_CHECK_MODULES(FONTTOSFNT, xproto freetype2 fontenc)
 AC_SUBST(FONTTOSFNT_CFLAGS)
 AC_SUBST(FONTTOSFNT_LIBS)
 
