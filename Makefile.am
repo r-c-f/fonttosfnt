@@ -75,6 +75,6 @@ SUFFIXES = .$(APP_MAN_SUFFIX) .man
 .PHONY: ChangeLog
 
 ChangeLog:
-	GIT_DIR=${srcdir}/.git git-log > ChangeLog
+	git-log > ChangeLog
 
 dist-hook: ChangeLog
