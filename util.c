@@ -77,8 +77,22 @@ sprintf_reliable(char *f, ...)
     s = vsprintf_reliable(f, args);
     va_end(args);
     return s;
-}    
+}
 
+#ifdef __GLIBC__
+char*
+vsprintf_reliable(char *f, va_list args)
+{
+    char *r;
+    int rc;
+
+    rc = vasprintf(&r, f, args);
+    if(rc < 0)
+        return NULL;
+    return r;
+}
+#else
+/* This is not portable, doesn't do va_copy right. */
 char*
 vsprintf_reliable(char *f, va_list args)
 {
@@ -101,6 +115,7 @@ vsprintf_reliable(char *f, va_list args)
     }
     /* NOTREACHED */
 }
+#endif
 
 /* Build a UTF-16 string from a Latin-1 string.  
    Result is not NUL-terminated. */
