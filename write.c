@@ -358,7 +358,7 @@ writeDir(FILE *out, FontPtr font, int numTables, unsigned *tables)
     writeULONG(out, 0x10000);   /* version */
     writeUSHORT(out, numTables); /* numTables */
     writeUSHORT(out, 16 * ti);  /* searchRange */
-    writeUSHORT(out, i - 1);    /* entrySelector */
+    writeUSHORT(out, i);        /* entrySelector */
     writeUSHORT(out, 16 * (numTables - ti)); /* rangeShift */
 
     /* see fixupDir */
