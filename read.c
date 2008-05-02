@@ -238,20 +238,20 @@ readFile(char *filename, FontPtr font)
         if(verbose_flag)
             fprintf(stderr, "size %d: %dx%d\n",
                     i, 
-                    face->available_sizes[i].width, 
-                    face->available_sizes[i].height);
+                    face->available_sizes[i].x_ppem >> 6, 
+                    face->available_sizes[i].y_ppem >> 6);
 
         rc = FT_Set_Pixel_Sizes(face,
-                                face->available_sizes[i].width,
-                                face->available_sizes[i].height);
+                                face->available_sizes[i].x_ppem >> 6,
+                                face->available_sizes[i].y_ppem >> 6);
         if(rc != 0) {
             fprintf(stderr, "Couldn't set size.\n");
             return -1;
         }
 
         strike = makeStrike(font, 
-                            face->available_sizes[i].width,
-                            face->available_sizes[i].height);
+                            face->available_sizes[i].x_ppem >> 6,
+                            face->available_sizes[i].y_ppem >> 6);
         if(strike == NULL) {
             fprintf(stderr, "Couldn't allocate strike.\n");
             return -1;
