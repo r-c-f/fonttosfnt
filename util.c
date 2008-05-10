@@ -69,19 +69,19 @@ extern void unsetenv(const char *name);
 #endif
 
 char*
-sprintf_reliable(char *f, ...)
+sprintf_alloc(char *f, ...)
 {
     char *s;
     va_list args;
     va_start(args, f);
-    s = vsprintf_reliable(f, args);
+    s = vsprintf_alloc(f, args);
     va_end(args);
     return s;
 }
 
 #ifdef __GLIBC__
 char*
-vsprintf_reliable(char *f, va_list args)
+vsprintf_alloc(char *f, va_list args)
 {
     char *r;
     int rc;
@@ -94,7 +94,7 @@ vsprintf_reliable(char *f, va_list args)
 #else
 /* This is not portable, doesn't do va_copy right. */
 char*
-vsprintf_reliable(char *f, va_list args)
+vsprintf_alloc(char *f, va_list args)
 {
     int n, size = 12;
     char *string;
@@ -391,7 +391,7 @@ faceEncoding(FT_Face face)
     if(rc != 0 || p2.type != BDF_PROPERTY_TYPE_ATOM)
         return NULL;
 
-    return sprintf_reliable("%s-%s", p1.u.atom, p2.u.atom);
+    return sprintf_alloc("%s-%s", p1.u.atom, p2.u.atom);
 }
     
 int

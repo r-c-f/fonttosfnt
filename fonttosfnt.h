@@ -162,8 +162,8 @@ int writeFile(char *filename, FontPtr);
 #define PROP_INTEGER 2
 #define PROP_CARDINAL 3
 
-char *sprintf_reliable(char *f, ...);
-char *vsprintf_reliable(char *f, va_list args);
+char *sprintf_alloc(char *f, ...);
+char *vsprintf_alloc(char *f, va_list args);
 char *makeUTF16(char *);
 unsigned makeName(char*);
 int macTime(int *, unsigned *);

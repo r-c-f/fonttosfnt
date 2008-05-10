@@ -109,29 +109,29 @@ readFile(char *filename, FontPtr font)
         BDF_PropertyRec prop;
         int rc, i;
         if(strcmp(face->style_name, "Regular") == 0)
-            full_name = sprintf_reliable("%s", face->family_name);
+            full_name = sprintf_alloc("%s", face->family_name);
         else
-            full_name = sprintf_reliable("%s %s", 
-                                         face->family_name, face->style_name);
+            full_name = sprintf_alloc("%s %s", 
+                                      face->family_name, face->style_name);
 
         /* The unique name doesn't actually need to be globally
            unique; it only needs to be unique among all installed fonts on a
            Windows system.  We don't bother getting it quite right. */
         if(face->num_fixed_sizes <= 0)
-            unique_name = sprintf_reliable("%s "XVENDORNAMESHORT" bitmap"
-					   , full_name);
+            unique_name = sprintf_alloc("%s "XVENDORNAMESHORT" bitmap",
+                                        full_name);
         else if(face->available_sizes[0].width == 
                 face->available_sizes[0].height)
-            unique_name = sprintf_reliable("%s "XVENDORNAMESHORT
+            unique_name = sprintf_alloc("%s "XVENDORNAMESHORT
 					   " bitmap size %d",
                                            full_name, 
                                            face->available_sizes[0].height);
         else
-            unique_name = sprintf_reliable("%s "XVENDORNAMESHORT
-					   " bitmap size %dx%d",
-                                           full_name, 
-                                           face->available_sizes[0].width,
-                                           face->available_sizes[0].height);
+            unique_name = sprintf_alloc("%s "XVENDORNAMESHORT
+                                        " bitmap size %dx%d",
+                                        full_name, 
+                                        face->available_sizes[0].width,
+                                        face->available_sizes[0].height);
 
         font->names = malloc(10 * sizeof(FontNameEntryRec));
         if(font->names == NULL) {
