@@ -92,19 +92,26 @@ vsprintf_alloc(char *f, va_list args)
     return r;
 }
 #else
-/* This is not portable, doesn't do va_copy right. */
 char*
 vsprintf_alloc(char *f, va_list args)
 {
     int n, size = 12;
     char *string;
+    va_list args_copy;
+
     while(1) {
         if(size > 4096)
             return NULL;
         string = malloc(size);
         if(!string)
             return NULL;
+
+#if HAVE_DECL_VA_COPY
+        va_copy(args_copy, args);
+        n = vsnprintf(string, size, f, args_copy);
+#else
         n = vsnprintf(string, size, f, args);
+#endif
         if(n >= 0 && n < size)
             return string;
         else if(n >= size)
