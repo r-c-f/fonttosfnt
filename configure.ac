@@ -32,6 +32,7 @@ AC_PROG_CC
 AC_PROG_INSTALL
 
 AC_CHECK_FUNC(setenv, have_setenv=yes, have_setenv=no)
+AC_CHECK_FUNCS([vasprintf])
 
 AM_CONDITIONAL(NEED_SETENV, [test x$have_setenv = xno])
 

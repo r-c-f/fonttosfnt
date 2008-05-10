@@ -79,7 +79,7 @@ sprintf_alloc(char *f, ...)
     return s;
 }
 
-#ifdef __GLIBC__
+#if HAVE_VASPRINTF
 char*
 vsprintf_alloc(char *f, va_list args)
 {

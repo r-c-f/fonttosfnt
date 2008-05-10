@@ -24,6 +24,10 @@ THE SOFTWARE.
 #ifndef _FONTTOSFNT_H_
 #define _FONTTOSFNT_H_ 1
 
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #include <stdarg.h>
 #include <ft2build.h>
 #include FT_FREETYPE_H
