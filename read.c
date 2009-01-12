@@ -238,8 +238,8 @@ readFile(char *filename, FontPtr font)
         if(verbose_flag)
             fprintf(stderr, "size %d: %dx%d\n",
                     i, 
-                    face->available_sizes[i].x_ppem >> 6, 
-                    face->available_sizes[i].y_ppem >> 6);
+                    (int)(face->available_sizes[i].x_ppem >> 6), 
+                    (int)(face->available_sizes[i].y_ppem >> 6));
 
         rc = FT_Set_Pixel_Sizes(face,
                                 face->available_sizes[i].x_ppem >> 6,
