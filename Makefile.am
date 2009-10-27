@@ -45,8 +45,8 @@ appmandir = $(APP_MAN_DIR)
 
 appman_DATA = $(appman_PRE:man=@APP_MAN_SUFFIX@)
 
-EXTRA_DIST = $(appman_PRE) ChangeLog
-CLEANFILES = $(appman_DATA) ChangeLog
+EXTRA_DIST = $(appman_PRE) 
+CLEANFILES = $(appman_DATA)
 
 SED = sed
 
