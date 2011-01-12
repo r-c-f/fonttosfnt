@@ -47,7 +47,6 @@ AM_CONDITIONAL(NEED_SETENV, [test x$have_setenv = xno])
 
 # Checks for pkg-config packages
 PKG_CHECK_MODULES(FONTTOSFNT, xproto freetype2 fontenc)
-AC_SUBST(FONTTOSFNT_LIBS)
 
 
 AC_OUTPUT([Makefile])
