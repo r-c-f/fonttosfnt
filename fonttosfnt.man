@@ -68,7 +68,7 @@ End of options.
 Some of the font-level values, notably sub- and superscript positions,
 are dummy values.
 .SH SEE ALSO
-X(7), Xserver(1), Xft(3x).
+X(__miscmansuffix__), Xserver(__appmansuffix__), Xft(__libmansuffix__).
 .I Fonts in X11.
 .SH AUTHOR
 The version of
