@@ -49,4 +49,7 @@ AM_CONDITIONAL(NEED_SETENV, [test x$have_setenv = xno])
 PKG_CHECK_MODULES(FONTTOSFNT, xproto freetype2 fontenc)
 
 
-AC_OUTPUT([Makefile])
+AC_CONFIG_FILES([
+	Makefile
+	man/Makefile])
+AC_OUTPUT
